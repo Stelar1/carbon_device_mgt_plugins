@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UserDao">
+
+	<!-- 配置实体类与数据库表的映射关系 -->
+	<resultMap type="user" id="userMap">
+		<id column="u_id" property="u_id"></id>
+		<result column="u_nickname" property="u_nickname" />
+		<result column="u_pwd" property="u_pwd" />
+		<result column="u_avatar" property="u_avatar" />
+		<result column="u_phone" property="u_phone" />
+	</resultMap>
+	<insert id="addUser" parameterType="user">
+		insert into user(u_nickname,u_pwd,u_avatar,u_phone) values(#{u_nickname},#{u_pwd},#{u_avatar},#{u_phone});
+	</insert>
+</mapper>
